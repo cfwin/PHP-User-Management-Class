@@ -108,7 +108,13 @@
             {
                 throw new Exception('Username already exists');
             }
-
+            
+            // Password validation
+            if (strlen($password) < 8)
+            {
+                throw new Exception('Password must be 8 charchters long');
+            }
+            
             // Hash password + generate salt
             $salt = $this->generateSalt(16);
             $password = $password . $salt;
